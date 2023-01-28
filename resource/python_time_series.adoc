@@ -1,0 +1,96 @@
+== Libaray
+    - import pandas as pd
+    - import numpy as np
+    -  import matplotlib.pyplot as plt
+    -  from pandas.plotting import scatter_matrix #import sacttter matrix
+    - import mplfinance as mpf #importmplfinace for ploting stockchat
+        - from mplfinance.original_flavor import candlestick_ohlc
+        - from matplotlib.dates import DateFormatter, date2num, WeekdayLocator, DayLocator, MONDA
+    
+    - import statsmodels.api as sm
+    - %matplotlib inline
+****
+ %matplotlib is a magic command which performs the necessary behind-the-scenes setup for IPython to work correctly hand-in-hand with matplotlib; it does not execute any Python import commands, that is, no names are added to the namespace.
+****
+====
+.pandas.read_csv()
+
+For example::in order to read tesLA CSV FILE AND covert convert daTE COLUMN as ROWS i,e idex of data frame and also convert it type as per data we write below code :-
+
+>>> pandas.read_csv('05-Pandas-with-Time-Series/time_data/walmart_stock.csv',index_col='Date',parse_dates=True)
+
+where:-
+
+- index_col='Date' ##change index from default to specify column name given##
+- parse_dates=True` ##change it type to datetime here##
+           
+****
+df = pd.read_csv('05-Pandas-with-Time-Series/time_data/walmart_stock.csv',index_col='Date',parse_dates=True)
+****
+====
+
+====
+.method
+[horizontal]
+df.head() :: give top 5 rows
+
+df.tail()::  give last 5 rows
+
+df['Open'].plot(figsize=(16,6)):: ploting Open coloumn and figsize frmating the grapg size 
+
+df.rolling(window=90).mean()['Close'].plot(figsize=(16,6)):: - .rolling(windows=90).mean ['Close']|| give meAN OF FIRST 90 COLUMN SELECTED IN ABOVE IT IS CLOSE column and plot(figsixe=16,6)|| show that in plot with given size
+df.dtype() :: shows data frame column datatype
+df.index() :: shows index data dtype
+df.armax() :: give index (rows number) when volume is max
+df/max()   :: give max valume
+dataframe.drop(labels, axis, index, columns, level, inplace., errors):: remove Specify rows or cloumns 
+
+https://www.w3schools.com/python/pandas/pandas_ref_dataframe.asp[doc link]
+====
+
+====
+
+.plotting
+
+[horizontal]
+    .plot(figsize=)::: give size to chart 
+    .polt(labele=')::: give labele to plot ,here tesal 
+    .plot(title=)::: give tiele to plot
+    .plot(label='Tesla',figsize=(16,8),title='Open Price')
+    plt.legend()::: give lengend
+    plt.ylabel() ::: give label to y asix
+    plt.xlabel()   ::: give label to x asix 
+    matplotlib.dates::: import DateFormatter, date2num, WeekdayLocator, DayLocator, MONDAY
+  
+https://matplotlib.org/stable/api/dates_api.html[doc link]
+ 
+ ***
+example: +
+    >>> tesla['Open'].plot(label='Tesla',figsize=(16,8),title='Open Price') +
+    >>> gm['Open'].plot(label='GM') +
+    >>> ford['Open'].plot(label='Ford') +
+    >>> plt.legend()
+***
+====
+
+====
+
+.Time series
+
+[horizontal]
+    pct_change() ::: calulated percentage by using shift method automatically
+    preloade datset ::: df=sm.datasets.macrodata.load_pandas().data
+    pd.Index ::: give index value
+
+
+
+https://devdocs.io/statsmodels-time-series-analysis/[Statsmodel url dock]
+
+
+====
+
+
+
+
+
+
